@@ -1,0 +1,28 @@
+{
+  "name": "yarden-caprover-one-click-apps",
+  "version": "1.0.0",
+  "description": "One Click App Repository for CapRover",
+  "scripts": {
+    "formatter": "prettier --check \"./public/**/*.(json|yml)\"",
+    "formatter-write": "prettier --write \"./public/**/*.(json|yml)\"",
+    "build": "rimraf ./dist && node ./scripts/build-one-click-apps.js && node ./scripts/build-one-click-apps-from-v4.js",
+    "validate": "node ./scripts/validate-apps.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordan-hall/caprover-one-click-apps.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jordan-hall/caprover-one-click-apps/issues"
+  },
+  "homepage": "https://github.com/jordan-hall/caprover-one-click-apps",
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "gh-pages": "^3.1.0",
+    "prettier": "^2.0.5",
+    "yaml": "^1.10.0",
+    "rimraf": "^3.0.2"
+  }
+}
