@@ -54,7 +54,7 @@ caproverOneClickApp:
       IMPORTANT: It will take up to 2 minutes for WordPress to be ready. Before that, you might see a 502 error page.
       
       Remember that this app will not create a Database by itself. You need to provide all that information.
-  displayName: WordPress - No Database (for cloudflare integration)
+  displayName: WordPress (yarden) - No Database
   isOfficial: true
   description: created by Yarden. This will create a WordPress only and install few dependencies. You will need to create and configure the database information manually.
   documentation: Taken from https://docs.docker.com/compose/wordpress/. Port mapping removed from WP as it is no longer needed
