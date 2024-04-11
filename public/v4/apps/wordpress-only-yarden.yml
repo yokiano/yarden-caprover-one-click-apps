@@ -1,7 +1,6 @@
 captainVersion: 4
 services:
   $$cap_appname-wordpress:
-    image: wordpress:$$cap_wp_version
     volumes:
       - $$cap_appname-wp-data:/var/www/html
     restart: always
@@ -13,7 +12,11 @@ services:
       WORDPRESS_DB_PASSWORD: $$cap_db_pass
     caproverExtra:
       dockerfileLines:
-        - RUN apt update && apt install -y nodejs npm && npm install -g wrangler
+        - FROM wordpress:$$cap_wp_version
+        - RUN apt-get update
+        - RUN apt-get install -y nodejs npm
+        - RUN npm install -g wrangler
+        - CMD ["apache2-foreground"]
 caproverOneClickApp:
   variables:
     - description: Database host
@@ -54,7 +57,7 @@ caproverOneClickApp:
       IMPORTANT: It will take up to 2 minutes for WordPress to be ready. Before that, you might see a 502 error page.
       
       Remember that this app will not create a Database by itself. You need to provide all that information.
-  displayName: WordPress (yarden) - No Database
+  displayName: WordPress (yarden-v2) - No Database
   isOfficial: true
   description: created by Yarden. This will create a WordPress only and install few dependencies. You will need to create and configure the database information manually.
   documentation: Taken from https://docs.docker.com/compose/wordpress/. Port mapping removed from WP as it is no longer needed
